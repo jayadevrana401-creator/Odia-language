@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="or">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ଉତ୍କଳ ଓଡ଼ିଆ ବିଦ୍ୟା କେନ୍ଦ୍ର — Utkal Odia Language School</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@500;600;700;800&family=Noto+Sans+Oriya:wght@400;500;600;700&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #F1E6C8;
+    --bg-alt: #FBF6E8;
+    --ink: #2B2118;
+    --ink-soft: #5A4B3A;
+    --maroon: #7A2323;
+    --maroon-deep: #591616;
+    --indigo: #1F3A5F;
+    --gold: #C98A2B;
+    --gold-light: #E4B564;
+    --line: rgba(43,33,24,0.14);
+    --radius: 14px;
+    --wrap: 1140px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .odia{font-family:'Noto Sans Oriya','Baloo Bhaina 2', sans-serif;}
+  h1,h2,h3,.display{
+    font-family:'Baloo Bhaina 2','Noto Sans Oriya', sans-serif;
+    font-weight:700;
+    color:var(--maroon-deep);
+    margin:0 0 .3em;
+  }
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:.72rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:500;
+    display:block;
+    margin-bottom:.6em;
+  }
+  a{color:inherit;}
+  img,svg{display:block;max-width:100%;}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px;}
+  section{padding:88px 0;}
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; scroll-behavior:auto !important;}
+  }
+
+  /* ---------- Wheel signature element ---------- */
+  .wheel{transform-origin:50% 50%;}
+  .wheel.spin{animation:spin 90s linear infinite;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  .wheel-spoke{transition:stroke .4s ease, opacity .4s ease;}
+
+  /* ---------- Header ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(241,230,200,0.86);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:var(--wrap);margin:0 auto;}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;}
+  .brand-name{font-family:'Baloo Bhaina 2';font-weight:700;color:var(--maroon-deep);font-size:1.15rem;line-height:1.1;}
+  .brand-name small{display:block;font-family:'Work Sans';font-weight:500;font-size:.68rem;color:var(--ink-soft);letter-spacing:.04em;}
+  .navlinks{display:flex;gap:2px;list-style:none;margin:0;padding:0;}
+  .navlinks a{
+    display:block;padding:8px 14px;border-radius:999px;text-decoration:none;
+    font-size:.92rem;font-weight:500;color:var(--ink-soft);transition:background .25s, color .25s;
+  }
+  .navlinks a .en{display:block;font-size:.68rem;opacity:.65;font-weight:400;}
+  .navlinks a:hover, .navlinks a.active{background:var(--maroon);color:#fff;}
+  .navlinks a.active .en, .navlinks a:hover .en{opacity:.85;}
+  .hamburger{display:none;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:8px;}
+  .hamburger span{width:22px;height:2px;background:var(--ink);}
+
+  @media (max-width:860px){
+    .navlinks{
+      position:absolute;top:100%;left:0;right:0;
+      background:var(--bg-alt);flex-direction:column;padding:10px;gap:4px;
+      border-bottom:1px solid var(--line);
+      display:none;
+    }
+    .navlinks.open{display:flex;}
+    .hamburger{display:flex;}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:170px 0 100px;
+    position:relative;
+    overflow:hidden;
+    background:
+      radial-gradient(ellipse at 85% 15%, rgba(201,138,43,0.16), transparent 55%),
+      var(--bg);
+  }
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;}
+  .hero h1{font-size:clamp(2.2rem,4.6vw,3.4rem);line-height:1.15;}
+  .hero h1 .en-line{
+    display:block;font-family:'Work Sans';font-weight:600;font-style:italic;
+    color:var(--indigo);font-size:.42em;margin-top:.35em;
+  }
+  .hero p.lede{max-width:46ch;color:var(--ink-soft);font-size:1.05rem;}
+  .hero-cta{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap;}
+  .btn{
+    display:inline-block;padding:13px 26px;border-radius:999px;text-decoration:none;
+    font-weight:600;font-size:.94rem;transition:transform .2s ease, box-shadow .2s ease;
+    border:1.5px solid transparent;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--maroon);color:#fff;box-shadow:0 8px 20px -8px rgba(122,35,35,.6);}
+  .btn-ghost{border-color:var(--maroon);color:var(--maroon-deep);}
+  .hero-wheel-holder{display:flex;justify-content:center;align-items:center;}
+
+  /* ---------- Section dividers ---------- */
+  .divider{display:flex;align-items:center;justify-content:center;gap:14px;padding:0 0 8px;}
+  .divider .line{flex:1;height:1px;background:var(--line);max-width:120px;}
+
+  /* ---------- About ---------- */
+  .about{background:var(--bg-alt);}
+  .about-intro{max-width:64ch;margin-bottom:48px;}
+  .level-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .level-card{
+    background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);
+    padding:26px 24px;position:relative;
+  }
+  .level-num{
+    font-family:'JetBrains Mono';font-size:.75rem;color:var(--gold);
+    border:1px solid var(--gold-light);border-radius:999px;padding:3px 10px;display:inline-block;margin-bottom:14px;
+  }
+  .level-card h3{font-size:1.15rem;margin-bottom:.2em;}
+  .level-card .en{font-size:.82rem;color:var(--ink-soft);font-weight:600;margin-bottom:.6em;display:block;}
+  .level-card p{font-size:.92rem;color:var(--ink-soft);margin:0;}
+
+  /* ---------- Lessons ---------- */
+  .tabbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:36px;}
+  .tab-btn{
+    background:none;border:1.5px solid var(--line);border-radius:999px;padding:9px 20px;
+    font-family:'Work Sans';font-weight:600;font-size:.88rem;color:var(--ink-soft);cursor:pointer;transition:all .2s ease;
+  }
+  .tab-btn .en{display:block;font-size:.65rem;font-weight:400;opacity:.7;}
+  .tab-btn.active{background:var(--indigo);border-color:var(--indigo);color:#fff;}
+  .tab-panel{display:none;}
+  .tab-panel.active{display:block;}
+
+  .lesson-card{
+    background:var(--bg-alt);border:1px solid var(--line);border-radius:var(--radius);
+    padding:28px;margin-bottom:20px;
+  }
+  .lesson-card h3{font-size:1.2rem;}
+  .lesson-card .en{color:var(--ink-soft);font-size:.85rem;font-weight:600;display:block;margin-bottom:14px;}
+
+  .varga-row{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:10px 0;border-top:1px dashed var(--line);align-items:center;}
+  .varga-row:first-of-type{border-top:none;}
+  .varga-label{font-size:.78rem;color:var(--ink-soft);}
+  .varga-label .odia{display:block;font-size:.95rem;color:var(--maroon-deep);font-weight:600;}
+  .glyphs{display:flex;flex-wrap:wrap;gap:10px;}
+  .glyph{
+    width:44px;height:44px;display:flex;align-items:center;justify-content:center;
+    background:var(--bg);border-radius:8px;font-family:'Noto Sans Oriya';font-size:1.25rem;color:var(--maroon-deep);
+    border:1px solid var(--line);
+  }
+  .vowel-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:8px;}
+
+  .grammar-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;}
+  .grammar-item{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:16px;}
+  .grammar-item .odia{font-size:1.05rem;color:var(--maroon-deep);font-weight:600;display:block;}
+  .grammar-item .en{font-size:.8rem;color:var(--ink-soft);}
+
+  .lit-list{list-style:none;margin:0;padding:0;display:grid;gap:14px;}
+  .lit-list li{padding:14px 16px;background:var(--bg);border-radius:10px;border:1px solid var(--line);}
+  .lit-list .odia{font-weight:600;color:var(--maroon-deep);display:block;}
+  .lit-list .en{font-size:.85rem;color:var(--ink-soft);}
+
+  /* ---------- Q&A ---------- */
+  .qa{background:var(--bg-alt);}
+  .qa-item{
+    border:1px solid var(--line);border-radius:12px;margin-bottom:12px;overflow:hidden;background:var(--bg);
+  }
+  .qa-q{
+    width:100%;text-align:left;background:none;border:none;padding:18px 22px;cursor:pointer;
+    display:flex;justify-content:space-between;align-items:center;gap:16px;font-family:'Work Sans';
+  }
+  .qa-q .qtext{font-weight:600;font-size:.98rem;}
+  .qa-q .qtext .odia{display:block;color:var(--maroon-deep);font-size:1.02rem;}
+  .qa-q .qtext .en{display:block;font-size:.8rem;color:var(--ink-soft);font-weight:400;margin-top:2px;}
+  .qa-q .plus{flex-shrink:0;width:26px;height:26px;border-radius:50%;border:1.5px solid var(--gold);color:var(--gold);
+    display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:transform .3s ease;}
+  .qa-item.open .plus{transform:rotate(45deg);}
+  .qa-a{max-height:0;overflow:hidden;transition:max-height .35s ease;}
+  .qa-a-inner{padding:0 22px 20px 22px;border-top:1px dashed var(--line);margin-top:0;}
+  .qa-a-inner .odia{display:block;color:var(--ink);font-weight:500;padding-top:14px;}
+  .qa-a-inner .en{display:block;font-size:.85rem;color:var(--ink-soft);margin-top:4px;}
+
+  /* ---------- Contact ---------- */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;}
+  .contact-info dt{font-family:'JetBrains Mono';font-size:.72rem;color:var(--gold);letter-spacing:.08em;text-transform:uppercase;margin-top:20px;}
+  .contact-info dd{margin:4px 0 0;font-size:.98rem;}
+  .field{margin-bottom:16px;}
+  .field label{display:block;font-size:.82rem;font-weight:600;color:var(--ink-soft);margin-bottom:6px;}
+  .field input, .field textarea{
+    width:100%;padding:11px 14px;border-radius:8px;border:1.5px solid var(--line);
+    background:var(--bg-alt);font-family:'Work Sans';font-size:.95rem;color:var(--ink);
+  }
+  .field textarea{resize:vertical;min-height:100px;}
+  .note{font-size:.78rem;color:var(--ink-soft);margin-top:10px;}
+
+  footer{background:var(--maroon-deep);color:#F1E6C8;padding:44px 0 28px;text-align:center;}
+  footer .odia{font-family:'Baloo Bhaina 2';font-size:1.05rem;}
+  footer .fine{font-size:.78rem;opacity:.65;margin-top:14px;font-family:'JetBrains Mono';}
+
+  @media (max-width:860px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero{padding-top:140px;}
+    .level-cards{grid-template-columns:1fr;}
+    .contact-grid{grid-template-columns:1fr;}
+    .varga-row{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="#home" class="brand">
+      <svg class="wheel spin" width="34" height="34" viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="46" fill="none" stroke="#C98A2B" stroke-width="3"/>
+        <circle cx="50" cy="50" r="8" fill="#7A2323"/>
+        <g stroke="#7A2323" stroke-width="2.4">
+          <line x1="50" y1="4" x2="50" y2="96"/>
+          <line x1="4" y1="50" x2="96" y2="50"/>
+          <line x1="14" y1="14" x2="86" y2="86"/>
+          <line x1="14" y1="86" x2="86" y2="14"/>
+          <line x1="50" y1="4" x2="30" y2="20"/>
+          <line x1="50" y1="4" x2="70" y2="20"/>
+          <line x1="50" y1="96" x2="30" y2="80"/>
+          <line x1="50" y1="96" x2="70" y2="80"/>
+        </g>
+      </svg>
+      <span class="brand-name">ଉତ୍କଳ ଓଡ଼ିଆ<small>Utkal Odia Language School</small></span>
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    <ul class="navlinks" id="navlinks">
+      <li><a href="#home" class="odia">ମୁଖ୍ୟପୃଷ୍ଠା<span class="en">Home</span></a></li>
+      <li><a href="#about" class="odia">ବିଦ୍ୟାଳୟ<span class="en">About</span></a></li>
+      <li><a href="#lessons" class="odia">ପାଠ<span class="en">Lessons</span></a></li>
+      <li><a href="#qa" class="odia">ପ୍ରଶ୍ନୋତ୍ତର<span class="en">Q&amp;A</span></a></li>
+      <li><a href="#contact" class="odia">ଯୋଗାଯୋଗ<span class="en">Contact</span></a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">ପ୍ରାଥମିକ ରୁ ମାଟ୍ରିକ — Primary to Matric</span>
+      <h1 class="odia">ଓଡ଼ିଆ ଶିଖ, ଓଡ଼ିଶାକୁ ଜାଣ
+        <span class="en-line">Learn Odia, know Odisha.</span>
+      </h1>
+      <p class="lede">ବର୍ଣ୍ଣମାଳାରୁ ସାହିତ୍ୟ ପର୍ଯ୍ୟନ୍ତ — ସବୁ ଶ୍ରେଣୀ ପାଇଁ ପାଠ ଓ ପରୀକ୍ଷା ପ୍ରଶ୍ନର ଉତ୍ତର ଏକାଠି। From the alphabet to literature — lessons and answered exam questions for every class level, in one place.</p>
+      <div class="hero-cta">
+        <a href="#lessons" class="btn btn-primary">ପାଠ ଦେଖନ୍ତୁ <span style="opacity:.8">— View Lessons</span></a>
+        <a href="#qa" class="btn btn-ghost">ପ୍ରଶ୍ନୋତ୍ତର <span style="opacity:.8">— Q&amp;A</span></a>
+      </div>
+    </div>
+    <div class="hero-wheel-holder">
+      <svg class="wheel spin" width="300" height="300" viewBox="0 0 200 200" aria-label="Konark wheel motif">
+        <circle cx="100" cy="100" r="92" fill="none" stroke="#C98A2B" stroke-width="4"/>
+        <circle cx="100" cy="100" r="70" fill="none" stroke="#7A2323" stroke-width="1.4" opacity=".4"/>
+        <circle cx="100" cy="100" r="16" fill="#7A2323"/>
+        <circle cx="100" cy="100" r="16" fill="none" stroke="#E4B564" stroke-width="2"/>
+        <g stroke="#7A2323" stroke-width="3">
+          <line x1="100" y1="8" x2="100" y2="192"/>
+          <line x1="8" y1="100" x2="192" y2="100"/>
+          <line x1="27" y1="27" x2="173" y2="173"/>
+          <line x1="27" y1="173" x2="173" y2="27"/>
+          <line x1="100" y1="8" x2="65" y2="30"/>
+          <line x1="100" y1="8" x2="135" y2="30"/>
+          <line x1="100" y1="192" x2="65" y2="170"/>
+          <line x1="100" y1="192" x2="135" y2="170"/>
+          <line x1="8" y1="100" x2="30" y2="65"/>
+          <line x1="8" y1="100" x2="30" y2="135"/>
+          <line x1="192" y1="100" x2="170" y2="65"/>
+          <line x1="192" y1="100" x2="170" y2="135"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="about" id="about">
+  <div class="wrap">
+    <span class="eyebrow">ବିଦ୍ୟାଳୟ ବିଷୟରେ — About the school</span>
+    <h2 class="odia">ଆମ ବିଦ୍ୟାଳୟ ବିଷୟରେ</h2>
+    <p class="about-intro">ଉତ୍କଳ ଓଡ଼ିଆ ବିଦ୍ୟା କେନ୍ଦ୍ର ପ୍ରାଥମିକ ରୁ ମାଟ୍ରିକ ପର୍ଯ୍ୟନ୍ତ ସମସ୍ତ ଛାତ୍ରଛାତ୍ରୀଙ୍କ ପାଇଁ ଓଡ଼ିଆ ଭାଷା, ବ୍ୟାକରଣ ଓ ସାହିତ୍ୟ ଶିକ୍ଷାକୁ ସହଜ ଓ ଆନନ୍ଦଦାୟକ କରିଥାଏ।<br><span style="color:var(--ink-soft);font-size:.92em;">Utkal Odia Language School makes Odia language, grammar, and literature simple and enjoyable for students from Primary to Matric (Class 10).</span></p>
+    <div class="level-cards">
+      <div class="level-card">
+        <span class="level-num">Level 01</span>
+        <h3 class="odia">ପ୍ରାଥମିକ</h3>
+        <span class="en">Primary · Class 1–5</span>
+        <p>ବର୍ଣ୍ଣମାଳା, ସରଳ ଶବ୍ଦ ଓ ଛୋଟ ଗଳ୍ପ ଦ୍ୱାରା ପଢ଼ିବା-ଲେଖିବା ଆରମ୍ଭ। Alphabet, simple words, and short stories to begin reading and writing.</p>
+      </div>
+      <div class="level-card">
+        <span class="level-num">Level 02</span>
+        <h3 class="odia">ମାଧ୍ୟମିକ</h3>
+        <span class="en">Middle · Class 6–8</span>
+        <p>ବ୍ୟାକରଣ, ରଚନା ଓ ମୌଳିକ ସାହିତ୍ୟ ଉପରେ ଗୁରୁତ୍ୱ। Focus on grammar, composition, and foundational literature.</p>
+      </div>
+      <div class="level-card">
+        <span class="level-num">Level 03</span>
+        <h3 class="odia">ଉଚ୍ଚ ମାଧ୍ୟମିକ</h3>
+        <span class="en">Secondary · Class 9–10</span>
+        <p>ସାହିତ୍ୟ ଇତିହାସ, ପ୍ରସିଦ୍ଧ ଲେଖକ ଓ ପରୀକ୍ଷା ପ୍ରସ୍ତୁତି। Literary history, notable authors, and exam preparation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LESSONS ================= -->
+<section id="lessons">
+  <div class="wrap">
+    <span class="eyebrow">ପାଠ ସମୂହ — Lessons</span>
+    <h2 class="odia">ଶ୍ରେଣୀ ଅନୁସାରେ ପାଠ</h2>
+    <div class="tabbar" role="tablist">
+      <button class="tab-btn active" data-tab="lp1">ପ୍ରାଥମିକ<span class="en">Primary</span></button>
+      <button class="tab-btn" data-tab="lp2">ମାଧ୍ୟମିକ<span class="en">Middle</span></button>
+      <button class="tab-btn" data-tab="lp3">ଉଚ୍ଚ ମାଧ୍ୟମିକ<span class="en">Secondary</span></button>
+    </div>
+
+    <div class="tab-panel active" id="lp1">
+      <div class="lesson-card">
+        <h3 class="odia">ବର୍ଣ୍ଣମାଳା — ସ୍ୱରବର୍ଣ୍ଣ</h3>
+        <span class="en">Lesson 1 · The Alphabet — Vowels (13)</span>
+        <div class="vowel-row">
+          <div class="glyph">ଅ</div><div class="glyph">ଆ</div><div class="glyph">ଇ</div><div class="glyph">ଈ</div>
+          <div class="glyph">ଉ</div><div class="glyph">ଊ</div><div class="glyph">ଋ</div><div class="glyph">ଏ</div>
+          <div class="glyph">ଐ</div><div class="glyph">ଓ</div><div class="glyph">ଔ</div><div class="glyph">ଅଂ</div><div class="glyph">ଅଃ</div>
+        </div>
+      </div>
+      <div class="lesson-card">
+        <h3 class="odia">ବର୍ଣ୍ଣମାଳା — ବ୍ୟଞ୍ଜନବର୍ଣ୍ଣ (ବର୍ଗ ଅନୁସାରେ)</h3>
+        <span class="en">Lesson 2 · Consonants, grouped by traditional varga (place of articulation)</span>
+        <div class="varga-row"><div class="varga-label"><span class="odia">କଣ୍ଠ୍ୟ</span>Guttural</div><div class="glyphs"><div class="glyph">କ</div><div class="glyph">ଖ</div><div class="glyph">ଗ</div><div class="glyph">ଘ</div><div class="glyph">ଙ</div></div></div>
+        <div class="varga-row"><div class="varga-label"><span class="odia">ତାଳବ୍ୟ</span>Palatal</div><div class="glyphs"><div class="glyph">ଚ</div><div class="glyph">ଛ</div><div class="glyph">ଜ</div><div class="glyph">ଝ</div><div class="glyph">ଞ</div></div></div>
+        <div class="varga-row"><div class="varga-label"><span class="odia">ମୂର୍ଦ୍ଧନ୍ୟ</span>Retroflex</div><div class="glyphs"><div class="glyph">ଟ</div><div class="glyph">ଠ</div><div class="glyph">ଡ</div><div class="glyph">ଢ</div><div class="glyph">ଣ</div></div></div>
+        <div class="varga-row"><div class="varga-label"><span class="odia">ଦନ୍ତ୍ୟ</span>Dental</div><div class="glyphs"><div class="glyph">ତ</div><div class="glyph">ଥ</div><div class="glyph">ଦ</div><div class="glyph">ଧ</div><div class="glyph">ନ</div></div></div>
+        <div class="varga-row"><div class="varga-label"><span class="odia">ଓଷ୍ଠ୍ୟ</span>Labial</div><div class="glyphs"><div class="glyph">ପ</div><div class="glyph">ଫ</div><div class="glyph">ବ</div><div class="glyph">ଭ</div><div class="glyph">ମ</div></div></div>
+        <div class="varga-row"><div class="varga-label"><span class="odia">ଅନ୍ତଃସ୍ଥ</span>Semivowel</div><div class="glyphs"><div class="glyph">ଯ</div><div class="glyph">ର</div><div class="glyph">ଲ</div><div class="glyph">ଵ</div></div></div>
+        <div class="varga-row"><div class="varga-label"><span class="odia">ଉଷ୍ମ</span>Sibilant</div><div class="glyphs"><div class="glyph">ଶ</div><div class="glyph">ଷ</div><div class="glyph">ସ</div><div class="glyph">ହ</div></div></div>
+        <div class="varga-row"><div class="varga-label"><span class="odia">ଯୁକ୍ତାକ୍ଷର</span>Additional</div><div class="glyphs"><div class="glyph">ଳ</div><div class="glyph">କ୍ଷ</div><div class="glyph">ଜ୍ଞ</div></div></div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="lp2">
+      <div class="lesson-card">
+        <h3 class="odia">ଶବ୍ଦର ଭେଦ — ବ୍ୟାକରଣ</h3>
+        <span class="en">Lesson 3 · Parts of speech</span>
+        <div class="grammar-grid">
+          <div class="grammar-item"><span class="odia">ବିଶେଷ୍ୟ</span><span class="en">Noun — names a person, place or thing</span></div>
+          <div class="grammar-item"><span class="odia">ସର୍ବନାମ</span><span class="en">Pronoun — replaces a noun (e.g. ମୁଁ, ତୁମେ, ସେ)</span></div>
+          <div class="grammar-item"><span class="odia">ବିଶେଷଣ</span><span class="en">Adjective — describes a noun</span></div>
+          <div class="grammar-item"><span class="odia">କ୍ରିୟା</span><span class="en">Verb — shows action or state</span></div>
+          <div class="grammar-item"><span class="odia">କ୍ରିୟା ବିଶେଷଣ</span><span class="en">Adverb — describes a verb</span></div>
+          <div class="grammar-item"><span class="odia">ଅବ୍ୟୟ</span><span class="en">Indeclinable — unchanging connector word</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="lp3">
+      <div class="lesson-card">
+        <h3 class="odia">ଓଡ଼ିଆ ସାହିତ୍ୟର ପ୍ରସିଦ୍ଧ ବ୍ୟକ୍ତିତ୍ୱ</h3>
+        <span class="en">Lesson 4 · Notable figures in Odia literature</span>
+        <ul class="lit-list">
+          <li><span class="odia">ସାରଳା ଦାସ — ଆଦିକବି</span><span class="en">Sarala Das, called the "Adi Kabi" (first poet), translated the Mahabharata into Odia in the 15th century</span></li>
+          <li><span class="odia">ଫକୀରମୋହନ ସେନାପତି</span><span class="en">Fakir Mohan Senapati, regarded as the father of the modern Odia novel and short story</span></li>
+          <li><span class="odia">ଗୋପବନ୍ଧୁ ଦାସ — ଉତ୍କଳମଣି</span><span class="en">Gopabandhu Das, honoured with the title "Utkalmani", poet and freedom fighter</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= Q&A ================= -->
+<section class="qa" id="qa">
+  <div class="wrap">
+    <span class="eyebrow">ପ୍ରଶ୍ନୋତ୍ତର — Answers</span>
+    <h2 class="odia">ପରୀକ୍ଷା ପ୍ରଶ୍ନର ଉତ୍ତର</h2>
+    <div class="tabbar" role="tablist">
+      <button class="tab-btn active" data-tab="qp1">ପ୍ରାଥମିକ<span class="en">Primary</span></button>
+      <button class="tab-btn" data-tab="qp2">ମାଧ୍ୟମିକ<span class="en">Middle</span></button>
+      <button class="tab-btn" data-tab="qp3">ଉଚ୍ଚ ମାଧ୍ୟମିକ<span class="en">Secondary</span></button>
+    </div>
+
+    <div class="tab-panel active" id="qp1">
+      <div class="qa-item">
+        <button class="qa-q"><span class="qtext"><span class="odia">ଓଡ଼ିଶାର ରାଜ୍ୟ ପକ୍ଷୀ କ'ଣ?</span><span class="en">What is the state bird of Odisha?</span></span><span class="plus">+</span></button>
+        <div class="qa-a"><div class="qa-a-inner"><span class="odia">ନୀଳକଣ୍ଠ (ଭାରତୀୟ ରୋଲର)</span><span class="en">The Indian Roller, locally called Nilakantha.</span></div></div>
+      </div>
+      <div class="qa-item">
+        <button class="qa-q"><span class="qtext"><span class="odia">ଓଡ଼ିଶାର ରାଜଧାନୀ କେଉଁଠି?</span><span class="en">Where is the capital of Odisha?</span></span><span class="plus">+</span></button>
+        <div class="qa-a"><div class="qa-a-inner"><span class="odia">ଭୁବନେଶ୍ୱର</span><span class="en">Bhubaneswar.</span></div></div>
+      </div>
+      <div class="qa-item">
+        <button class="qa-q"><span class="qtext"><span class="odia">ଓଡ଼ିଆ ବର୍ଣ୍ଣମାଳାରେ କେତେ ସ୍ୱରବର୍ଣ୍ଣ ଅଛି?</span><span class="en">How many vowels are in the Odia alphabet?</span></span><span class="plus">+</span></button>
+        <div class="qa-a"><div class="qa-a-inner"><span class="odia">ତେର (୧୩) ଟି ସ୍ୱରବର୍ଣ୍ଣ ଅଛି।</span><span class="en">There are thirteen (13) vowels.</span></div></div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="qp2">
+      <div class="qa-item">
+        <button class="qa-q"><span class="qtext"><span class="odia">ସର୍ବନାମ କାହାକୁ କୁହାଯାଏ?</span><span class="en">What is a pronoun?</span></span><span class="plus">+</span></button>
+        <div class="qa-a"><div class="qa-a-inner"><span class="odia">ବିଶେଷ୍ୟ ପରିବର୍ତ୍ତେ ବ୍ୟବହୃତ ହେଉଥିବା ଶବ୍ଦକୁ ସର୍ବନାମ କୁହାଯାଏ, ଯଥା — ମୁଁ, ତୁମେ, ସେ।</span><span class="en">A word used in place of a noun is called a pronoun — for example, I, you, he/she.</span></div></div>
+      </div>
+      <div class="qa-item">
+        <button class="qa-q"><span class="qtext"><span class="odia">ଓଡ଼ିଆ ଭାଷାର ଆଦିକବି କିଏ?</span><span class="en">Who is regarded as the first poet of Odia literature?</span></span><span class="plus">+</span></button>
+        <div class="qa-a"><div class="qa-a-inner"><span class="odia">ସାରଳା ଦାସ, ଯିଏ ମହାଭାରତକୁ ଓଡ଼ିଆରେ ଅନୁବାଦ କରିଥିଲେ।</span><span class="en">Sarala Das, who translated the Mahabharata into Odia.</span></div></div>
+      </div>
+      <div class="qa-item">
+        <button class="qa-q"><span class="qtext"><span class="odia">ଓଡ଼ିଶାର ପ୍ରସିଦ୍ଧ ଶାସ୍ତ୍ରୀୟ ନୃତ୍ୟ କ'ଣ?</span><span class="en">What is Odisha's famous classical dance form?</span></span><span class="plus">+</span></button>
+        <div class="qa-a"><div class="qa-a-inner"><span class="odia">ଓଡ଼ିଶୀ ନୃତ୍ୟ।</span><span class="en">Odissi dance.</span></div></div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="qp3">
+      <div class="qa-item">
+        <button class="qa-q"><span class="qtext"><span class="odia">"ଉତ୍କଳମଣି" ଉପାଧି କାହାକୁ ମିଳିଥିଲା?</span><span class="en">Who was given the title "Utkalmani"?</span></span><span class="plus">+</span></button>
+        <div class="qa-a"><div class="qa-a-inner"><span class="odia">ଗୋପବନ୍ଧୁ ଦାସଙ୍କୁ।</span><span class="en">Gopabandhu Das.</span></div></div>
+      </div>
+      <div class="qa-item">
+        <button class="qa-q"><span class="qtext"><span class="odia">ଓଡ଼ିଆ ଉପନ୍ୟାସର ଜନକ କିଏ?</span><span class="en">Who is known as the father of the Odia novel?</span></span><span class="plus">+</span></button>
+        <div class="qa-a"><div class="qa-a-inner"><span class="odia">ଫକୀରମୋହନ ସେନାପତି।</span><span class="en">Fakir Mohan Senapati.</span></div></div>
+      </div>
+      <div class="qa-item">
+        <button class="qa-q"><span class="qtext"><span class="odia">କୋଣାର୍କ ସୂର୍ଯ୍ୟ ମନ୍ଦିର କେଉଁ ରାଜବଂଶ ସମୟରେ ନିର୍ମିତ ହୋଇଥିଲା?</span><span class="en">Which dynasty built the Konark Sun Temple?</span></span><span class="plus">+</span></button>
+        <div class="qa-a"><div class="qa-a-inner"><span class="odia">ଗଙ୍ଗ ରାଜବଂଶ, ରାଜା ପ୍ରଥମ ନରସିଂହଦେବଙ୍କ ସମୟରେ (୧୩ଶ ଶତାବ୍ଦୀ)।</span><span class="en">The Eastern Ganga dynasty, under King Narasimhadeva I, in the 13th century.</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+  <div class="wrap contact-grid">
+    <div class="contact-info">
+      <span class="eyebrow">ଯୋଗାଯୋଗ — Contact</span>
+      <h2 class="odia">ଆମ ସହିତ ଯୋଗାଯୋଗ କରନ୍ତୁ</h2>
+      <dl>
+        <dt>ଠିକଣା · Address</dt>
+        <dd>ଉତ୍କଳ ଓଡ଼ିଆ ବିଦ୍ୟା କେନ୍ଦ୍ର, ଭୁବନେଶ୍ୱର, ଓଡ଼ିଶା</dd>
+        <dt>ଇମେଲ · Email</dt>
+        <dd>info@utkalodiaschool.example</dd>
+        <dt>ଫୋନ୍ · Phone</dt>
+        <dd>+91 00000 00000</dd>
+        <dt>ସମୟ · Hours</dt>
+        <dd>ସୋମ–ଶନି, ୯:୦୦ AM – ୫:୦୦ PM · Mon–Sat, 9:00 AM – 5:00 PM</dd>
+      </dl>
+    </div>
+    <form onsubmit="event.preventDefault(); this.querySelector('.note').textContent='ଧନ୍ୟବାଦ! (Demo form — not connected yet.)';">
+      <div class="field"><label>ନାମ · Name</label><input type="text" placeholder="ଆପଣଙ୍କ ନାମ"></div>
+      <div class="field"><label>ଇମେଲ · Email</label><input type="email" placeholder="you@example.com"></div>
+      <div class="field"><label>ବାର୍ତ୍ତା · Message</label><textarea placeholder="ଆପଣଙ୍କ ପ୍ରଶ୍ନ ଲେଖନ୍ତୁ..."></textarea></div>
+      <button type="submit" class="btn btn-primary">ପଠାନ୍ତୁ — Send</button>
+      <p class="note">ଏହା ଏକ ଡେମୋ ଫର୍ମ — ବର୍ତ୍ତମାନ ପାଇଁ ସଂଯୋଗିତ ନୁହେଁ। This is a demo form and isn't connected to a backend yet.</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="odia">ଉତ୍କଳ ଓଡ଼ିଆ ବିଦ୍ୟା କେନ୍ଦ୍ର</span>
+    <div class="fine">© 2026 Utkal Odia Language School · Built with care for Odia learners everywhere</div>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu
+  const hamburger = document.getElementById('hamburger');
+  const navlinks = document.getElementById('navlinks');
+  hamburger.addEventListener('click', () => navlinks.classList.toggle('open'));
+  navlinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navlinks.classList.remove('open')));
+
+  // Scroll spy
+  const sections = document.querySelectorAll('section[id]');
+  const links = document.querySelectorAll('.navlinks a');
+  const spy = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + entry.target.id));
+      }
+    });
+  }, {rootMargin: '-45% 0px -50% 0px'});
+  sections.forEach(s => spy.observe(s));
+
+  // Tabs (lessons + Q&A independently, matched by shared prefix scoping)
+  document.querySelectorAll('.tabbar').forEach(bar => {
+    const buttons = bar.querySelectorAll('.tab-btn');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const target = btn.dataset.tab;
+        const panel = document.getElementById(target);
+        const siblingPanels = panel.parentElement.querySelectorAll('.tab-panel');
+        siblingPanels.forEach(p => p.classList.remove('active'));
+        panel.classList.add('active');
+      });
+    });
+  });
+
+  // Accordion
+  document.querySelectorAll('.qa-item').forEach(item => {
+    const btn = item.querySelector('.qa-q');
+    const ans = item.querySelector('.qa-a');
+    btn.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      item.parentElement.querySelectorAll('.qa-item.open').forEach(o => {
+        if(o !== item){ o.classList.remove('open'); o.querySelector('.qa-a').style.maxHeight = null; }
+      });
+      item.classList.toggle('open', !isOpen);
+      ans.style.maxHeight = !isOpen ? ans.scrollHeight + 'px' : null;
+    });
+  });
+</script>
+</body>
+</html>
